@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
+import Colors from '../constants/Colors'
+
 const GameStartScreen = props => {
     return (
         <View style={styles.screen}>
@@ -9,8 +11,8 @@ const GameStartScreen = props => {
                 <Text>Select a number</Text>
                 <TextInput />
                 <View style={styles.buttonContainer}>
-                    <View style={styles.button}><Button title="Reset" onPress={() => {}} /></View>
-                    <View style={styles.button}><Button title="Confirm" onPress={() => {}} /></View>
+                    <View style={styles.button}><Button title="Reset" onPress={() => {}} color={Colors.secondary} /></View>
+                    <View style={styles.button}><Button title="Confirm" onPress={() => {}} color={Colors.accent} /></View>
                 </View>
             </View>
         </View>
