@@ -30,7 +30,15 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: 300,
         maxWidth: '80%',
-        alignItems: 'center'
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2},
+        shadowRadius: 6,
+        shadowOpacity: 0.25,
+        backgroundColor: 'white',
+        elevation: 5
     },
     buttonContainer: {
         flexDirection: 'row',
