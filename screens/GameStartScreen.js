@@ -12,6 +12,7 @@ import {
 import Colors from '../constants/Colors'
 import Input from '../components/Input'
 import NumberBox from '../components/NumberBox';
+import Block from '../components/Block';
 
 const GameStartScreen = props => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -49,7 +50,7 @@ const GameStartScreen = props => {
             <View style={styles.summaryContainer}>
                 <Text>You selected:</Text>
                 <NumberBox>{selectedNumber}</NumberBox>
-                <Button title="START GAME" />
+                <Button title="START GAME" onPress={() => props.onGameStart(selectedNumber)} />
             </View>
         )
     };
@@ -61,7 +62,7 @@ const GameStartScreen = props => {
         }}>
             <View style={styles.screen}>
                 <Text style={styles.title}>Let's start a new game!</Text>
-                <View style={styles.inputContainer}>
+                <Block style={styles.inputContainer}>
                     <Text>Enter a number</Text>
                     <Input
                         style={styles.input}
@@ -87,9 +88,9 @@ const GameStartScreen = props => {
                                 onPress={confirmInputHandler}
                                 color={Colors.accent}
                             />
-                            </View>
+                        </View>
                     </View>
-                </View>
+                </Block>
                 {confirmedOutput}
             </View>
         </TouchableWithoutFeedback>
@@ -109,15 +110,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: 300,
         maxWidth: '80%',
-        padding: 20,
-        borderRadius: 10,
         alignItems: 'center',
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: 2},
-        shadowRadius: 6,
-        shadowOpacity: 0.25,
-        backgroundColor: 'white',
-        elevation: 5
     },
     buttonContainer: {
         flexDirection: 'row',
