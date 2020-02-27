@@ -10,6 +10,11 @@ export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [roundNumber, setRoundNumber] = useState(0);
 
+  const restartGameHandler = () => {
+    setRoundNumber(0);
+    setUserNumber(null);
+  };
+
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
     setRoundNumber(0);
@@ -24,7 +29,7 @@ export default function App() {
   if (userNumber && roundNumber === 0) {
     content = <GameActiveScreen userChoice={userNumber} onGameOver={endGameHandler} />;
   } else if (roundNumber > 0) {
-    content = <GameOverScreen roundNumber={roundNumber} />;
+    content = <GameOverScreen roundNumber={roundNumber} onRestartGame={restartGameHandler} />;
   }
 
   return (
