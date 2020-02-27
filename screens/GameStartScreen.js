@@ -11,6 +11,7 @@ import {
 
 import Colors from '../constants/Colors'
 import Input from '../components/Input'
+import NumberBox from '../components/NumberBox';
 
 const GameStartScreen = props => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -38,12 +39,19 @@ const GameStartScreen = props => {
         setConfirmed(true);
         setSelectedNumber(chosenNumber);
         setEnteredValue('');
+        Keyboard.dismiss();
     };
 
     let confirmedOutput;
 
     if (confirmed) {
-        confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>
+        confirmedOutput = (
+            <View style={styles.summaryContainer}>
+                <Text>You selected:</Text>
+                <NumberBox>{selectedNumber}</NumberBox>
+                <Button title="START GAME" />
+            </View>
+        )
     };
     
 
@@ -52,9 +60,9 @@ const GameStartScreen = props => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a new game!</Text>
+                <Text style={styles.title}>Let's start a new game!</Text>
                 <View style={styles.inputContainer}>
-                    <Text>Select a number</Text>
+                    <Text>Enter a number</Text>
                     <Input
                         style={styles.input}
                         blurOnSubmit
@@ -121,8 +129,12 @@ const styles = StyleSheet.create({
         width: 100
     },
     input: {
-        width: 50,
+        width: 40,
         textAlign: 'center'
+    },
+    summaryContainer: {
+        marginVertical: 20,
+        alignItems: 'center'
     }
 });
 
