@@ -13,6 +13,7 @@ import Colors from '../constants/Colors'
 import Input from '../components/Input'
 import NumberBox from '../components/NumberBox';
 import Block from '../components/Block';
+import DefaultStyles from '../constants/defaultStyles';
 
 const GameStartScreen = props => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -61,7 +62,7 @@ const GameStartScreen = props => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Let's start a new game!</Text>
+                <Text style={styles.title, DefaultStyles.title}>Let's start a new game!</Text>
                 <Block style={styles.inputContainer}>
                     <Text>Enter a number</Text>
                     <Input
@@ -102,9 +103,9 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         alignItems: 'center',
+        marginTop: '30%'
     },
     title: {
-        fontSize: 20,
         marginVertical: 10,
     },
     inputContainer: {
