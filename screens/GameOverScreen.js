@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, Image } from 'react-native';
 
 import DefaultStyles from '../constants/defaultStyles';
+import Colors from '../constants/Colors';
 
 const GameOverScreen = props => {
     return (
@@ -10,7 +11,9 @@ const GameOverScreen = props => {
             <View style={styles.imageContainer}>
                 <Image source={require('../assets/game-end.png')} style={styles.image} />
             </View>
-            <Text style={DefaultStyles.bodyText, styles.centralText}>The computer took {props.roundNumber} round(s)</Text>
+            <Text style={DefaultStyles.bodyText, styles.centralText}>
+                The computer took <Text style={styles.highlight}>{props.roundNumber}</Text> round(s)
+            </Text>
             <Button title="Play again?" onPress={props.onRestartGame} />
         </View>
     );
@@ -23,7 +26,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     centralText: {
-        paddingVertical: 20
+        paddingVertical: 20,
+        fontSize: 20,
+        textAlign: "center"
+    },
+    highlight: {
+        color: Colors.accent
     },
     image: {
         width: '100%',
