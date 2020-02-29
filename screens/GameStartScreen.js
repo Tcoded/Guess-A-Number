@@ -13,6 +13,7 @@ import Colors from '../constants/Colors'
 import Input from '../components/Input'
 import NumberBox from '../components/NumberBox';
 import Block from '../components/Block';
+import PrimaryButton from '../components/PrimaryButton';
 import DefaultStyles from '../constants/defaultStyles';
 
 const GameStartScreen = props => {
@@ -49,9 +50,11 @@ const GameStartScreen = props => {
     if (confirmed) {
         confirmedOutput = (
             <View style={styles.summaryContainer}>
-                <Text>You selected:</Text>
+                <Text style={DefaultStyles.bodyText}>You selected:</Text>
                 <NumberBox>{selectedNumber}</NumberBox>
-                <Button title="START GAME" onPress={() => props.onGameStart(selectedNumber)} />
+                <PrimaryButton onPress={() => props.onGameStart(selectedNumber)} >
+                    START GAME
+                </PrimaryButton>
             </View>
         )
     };
@@ -64,7 +67,7 @@ const GameStartScreen = props => {
             <View style={styles.screen}>
                 <Text style={styles.title, DefaultStyles.title}>Let's start a new game!</Text>
                 <Block style={styles.inputContainer}>
-                    <Text>Enter a number</Text>
+                    <Text style={DefaultStyles.bodyText}>Enter a number</Text>
                     <Input
                         style={styles.input}
                         blurOnSubmit

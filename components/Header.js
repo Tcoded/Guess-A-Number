@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
 import Colors from '../constants/Colors';
+import DefaultStyles from '../constants/defaultStyles';
 
 const Header = props => {
     return (
         <View style={styles.header}>
-            <Text style={styles.headerTitle}>{props.title}</Text>
+            <Text style={DefaultStyles.title}>{props.title}</Text>
         </View>
     );
 };
@@ -19,11 +20,6 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         alignItems: 'center',
         justifyContent: 'center'
-    },
-    headerTitle: {
-        color: 'black',
-        fontSize: 18,
-        fontFamily: 'open-sans-bold'
     }
 });
 
